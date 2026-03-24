@@ -60,12 +60,12 @@ function spawnWaterCan() {
     currentCans++;
     document.getElementById('current-cans').textContent = currentCans;
 
-    // Remove can immediately
+    // Remove can immediately (DOM change requirement)
     can.parentElement.remove();
 
     // Achievement milestone feedback
     if (currentCans === Math.floor(DIFFICULTY_SETTINGS[selectedDifficulty].goal / 2)) {
-      showAchievement("Halfway there! Keep going!");
+      showAchievement("💧 Halfway there! Keep going!");
     }
 
     // Win condition
@@ -155,3 +155,4 @@ document.querySelectorAll('.difficulty-select button').forEach(btn => {
 // Start Button
 // -------------------------------
 document.getElementById('start-game').addEventListener('click', startGame);
+
